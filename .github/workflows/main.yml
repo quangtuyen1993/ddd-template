@@ -13,8 +13,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       
+      - name: Install Dart and Pub Dependencies
+        uses: subosito/flutter-action@v1.5.0
+        with:
+          flutter-version: '2.2.3' # replace with desired version
+          channel: stable
+          
       - name: Install Mason CLI
-        run: curl https://raw.githubusercontent.com/felangel/mason/master/install.sh | bash && source ~/.bashrc
+        run: dart pub global activate mason_cli
       
       - name: Login into BrickHub.Dev
         run: |
