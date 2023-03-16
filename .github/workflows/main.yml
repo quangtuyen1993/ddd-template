@@ -1,0 +1,27 @@
+name: Auto Deploy Bricks to BrickHub.dev
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Install Mason CLI
+        run: curl https://raw.githubusercontent.com/felangel/mason/master/install.sh | bash && source ~/.bashrc
+      
+      - name: Login into BrickHub.Dev
+        run: |
+          echo ${{ secrets.AUTH }} | base64 -d > uploader.json
+          mason auth --uploader=uploader.json
+        env:
+          BRICKHUB_AUTH: ${{ secrets.AUTH }}
+      
+      - name: Release to BrickHub.dev
+        run: mason publish --directory bricks/ddd-template
