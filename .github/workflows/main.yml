@@ -3,7 +3,7 @@ name: Auto Deploy Bricks to BrickHub.dev
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -25,3 +25,4 @@ jobs:
       
       - name: Release to BrickHub.dev
         run: mason publish --directory bricks/ddd-template
+
