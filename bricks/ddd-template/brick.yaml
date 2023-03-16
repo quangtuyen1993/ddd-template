@@ -1,0 +1,16 @@
+name: ddd-template
+description: ddd-template
+repository: https://github.com/quangtuyen1993/ddd.git
+
+version: 0.1.0+1
+
+environment:
+  mason: ">=0.1.0-dev.41 <0.1.0"
+
+vars:
+  name:
+    type: string
+    description: template
+    default: corgivn
+    prompt: template
+  
