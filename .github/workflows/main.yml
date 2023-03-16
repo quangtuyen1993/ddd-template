@@ -28,5 +28,5 @@ jobs:
           echo Kieungan@2607
           
       - name: Release to BrickHub.dev
-        run: cd bricks/ddd-template || mason publish
+        run: mason publish --directory bricks/ddd-template  
 
