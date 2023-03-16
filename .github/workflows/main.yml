@@ -24,8 +24,8 @@ jobs:
 
       - name: Mason Login
         run: |
-          read quangtuyen1993@gmail.com
-          read -s Kieungan@2607
+          echo quangtuyen1993@gmail.com
+          echo Kieungan@2607
           
       - name: Release to BrickHub.dev
         run: mason publish --directory bricks/ddd-template
