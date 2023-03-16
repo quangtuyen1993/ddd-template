@@ -21,14 +21,7 @@ jobs:
 
       - name: Install Mason CLI
         run: dart pub global activate mason_cli
-      
-      - name: Login into BrickHub.Dev
-        run: |
-          echo ${{ secrets.AUTH }} | base64 -d > uploader.json
-          mason auth --uploader=uploader.json
-        env:
-          BRICKHUB_AUTH: ${{ secrets.AUTH }}
-      
+        
       - name: Release to BrickHub.dev
         run: mason publish --directory bricks/ddd-template
 
